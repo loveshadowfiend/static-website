@@ -4,6 +4,7 @@ import "./styles/styles.css";
 import { createHashRouter, RouterProvider } from "react-router-dom";
 import { HomePage } from "./pages/HomePage";
 import { Team } from "./pages/Team";
+import { NotFound } from "./pages/NotFound";
 
 const routes = [
     {
@@ -13,6 +14,10 @@ const routes = [
     {
         path: "/team",
         element: <Team />,
+    },
+    {
+        path: "/*",
+        element: <NotFound />,
     },
 ];
 

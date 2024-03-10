@@ -475,4 +475,12 @@ p {
   grid-template-columns: 1fr 1fr 1fr;
   -moz-column-gap: 30px;
        column-gap: 30px;
+}
+
+.not-found {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
 }/*# sourceMappingURL=styles.css.map */
