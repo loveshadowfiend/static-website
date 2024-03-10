@@ -9,12 +9,12 @@ export const Header = () => {
                 <nav className="header__menu">
                     <ul className="header__menu-list">
                         <li className="header__menu-item">
-                            <a className="header__menu-link" href="">
+                            <a className="header__menu-link" href="#/overview">
                                 Overview
                             </a>
                         </li>
                         <li className="header__menu-item">
-                            <a className="header__menu-link" href="">
+                            <a className="header__menu-link" href="#/features">
                                 Features
                             </a>
                         </li>
@@ -24,14 +24,14 @@ export const Header = () => {
                             </a>
                         </li>
                         <li className="header__menu-item">
-                            <a className="header__menu-link" href="">
+                            <a className="header__menu-link" href="#/platform">
                                 Platform
                             </a>
                         </li>
                         <li className="header__menu-item">
                             <a
                                 className="header__menu-link-button a-button"
-                                href=""
+                                href="#/purchase"
                             >
                                 Purchase
                             </a>

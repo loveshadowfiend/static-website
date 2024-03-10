@@ -1,6 +1,6 @@
 export const Logo = (props) => {
     return (
-        <a className={`${props.className} logo`} href="/">
+        <a className={`${props.className} logo`} href="">
             CATS
         </a>
     );
