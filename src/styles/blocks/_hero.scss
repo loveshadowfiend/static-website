@@ -1,0 +1,56 @@
+.hero {
+    padding-top: 90px;
+
+    &__inner {
+        display: grid;
+    }
+
+    &__text {
+        width: 50%;
+
+        &-h1 {
+            font-size: 72px;
+            line-height: 86px;
+            color: var(--color-text);
+
+            padding-bottom: 30px;
+        }
+
+        &-h5 {
+            text-align: justify;
+            color: var(--color-text);
+        }
+
+        padding-bottom: 115px;
+    }
+
+    &__tech {
+        display: grid;
+        grid-template-columns: 25% 25%;
+        column-gap: 40px;
+
+        &-icon {
+            font-size: 50px;
+            padding-bottom: 25px;
+        }
+
+        h5 {
+            font-size: 22px;
+            line-height: 26px;
+            font-weight: 500;
+            padding-bottom: 25px;
+        }
+
+        p {
+            font-size: 16px;
+            line-height: 26px;
+        }
+    }
+
+    &__image {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(50%, -50%);
+    }
+}

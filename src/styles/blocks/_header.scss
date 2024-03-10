@@ -1,0 +1,27 @@
+.header {
+    padding-top: 45px;
+    font-size: 16px;
+
+    &__inner {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+    }
+
+    &__logo {
+        display: flex;
+        align-items: center;
+    }
+
+    &__menu {
+        font-size: 18px;
+        font-weight: 500;
+
+        &-list {
+            display: flex;
+            justify-content: right;
+            align-items: center;
+            column-gap: 40px;
+        }
+    }
+}

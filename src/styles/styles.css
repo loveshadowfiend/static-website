@@ -1,0 +1,477 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap");
+/**
+  Нормализация блочной модели
+ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/**
+    Убираем внутренние отступы слева тегам списков,
+    у которых есть атрибут class
+   */
+:where(ul, ol):where([class]) {
+  padding-left: 0;
+}
+
+/**
+    Убираем внешние отступы body и двум другим тегам,
+    у которых есть атрибут class
+   */
+body,
+:where(blockquote, figure):where([class]) {
+  margin: 0;
+}
+
+/**
+    Убираем внешние отступы вертикали нужным тегам,
+    у которых есть атрибут class
+   */
+:where(h1, h2, h3, h4, h5, h6, p, ul, ol, dl):where([class]) {
+  margin-block: 0;
+}
+
+:where(dd[class]) {
+  margin-left: 0;
+}
+
+:where(fieldset[class]) {
+  margin-left: 0;
+  padding: 0;
+  border: none;
+}
+
+/**
+    Убираем стандартный маркер маркированному списку,
+    у которого есть атрибут class
+   */
+:where(ul[class]) {
+  list-style: none;
+}
+
+/**
+    Обнуляем вертикальные внешние отступы параграфа,
+    объявляем локальную переменную для внешнего отступа вниз,
+    чтобы избежать взаимодействие с более сложным селектором
+   */
+p {
+  --paragraphMarginBottom: 24px;
+  margin-block: 0;
+}
+
+/**
+    Внешний отступ вниз для параграфа без атрибута class,
+    который расположен не последним среди своих соседних элементов
+   */
+p:where(:not([class]):not(:last-child)) {
+  margin-bottom: var(--paragraphMarginBottom);
+}
+
+/**
+    Упрощаем работу с изображениями
+   */
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/**
+    Наследуем свойства шрифт для полей ввода
+   */
+input,
+textarea,
+select,
+button {
+  font: inherit;
+}
+
+html {
+  /**
+    Пригодится в большинстве ситуаций
+    (когда, например, нужно будет "прижать" футер к низу сайта)
+   */
+  height: 100%;
+  /**
+    Плавный скролл
+   */
+  scroll-behavior: smooth;
+}
+
+body {
+  /**
+    Пригодится в большинстве ситуаций
+    (когда, например, нужно будет "прижать" футер к низу сайта)
+   */
+  min-height: 100%;
+  /**
+    Унифицированный интерлиньяж
+   */
+  line-height: 1.5;
+}
+
+/**
+    Приводим к единому цвету svg-элементы
+   */
+svg *[fill] {
+  fill: currentColor;
+}
+
+svg *[stroke] {
+  stroke: currentColor;
+}
+
+/**
+    Чиним баг задержки смены цвета при взаимодействии с svg-элементами
+   */
+svg * {
+  transition-property: fill, stroke;
+}
+
+/**
+    Удаляем все анимации и переходы для людей,
+    которые предпочитают их не использовать
+   */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+:root {
+  --font-family-base: "DM Sans";
+  --padding-side: 115px;
+  --color-base: #faf4ed;
+  --color-surface: #fffaf3;
+  --color-overlay: #f2e9e1;
+  --color-muted: #9893a5;
+  --color-subtle: #797593;
+  --color-text: #575279;
+  --color-love: #b4637a;
+  --color-gold: #ea9d34;
+  --color-rose: #d7827e;
+  --color-pine: #286983;
+  --color-foam: #56949f;
+  --color-iris: #907aa9;
+  --color-highlight-low: #f4ede8;
+  --color-highlight-med: #dfdad9;
+  --color-highlight-high: #cecacd;
+}
+
+body {
+  font-family: var(--font-family-base);
+  background-color: var(--color-base);
+  line-height: 1.25;
+  color: var(--color-text);
+}
+
+main {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding-left: var(--padding-side);
+  padding-right: var(--padding-side);
+}
+
+a {
+  color: inherit;
+}
+a, a:hover {
+  text-decoration: none;
+}
+@media (hover: hover) {
+  a:hover {
+    color: var(--color-highlight-high);
+  }
+}
+@media (hover: none) {
+  a:active {
+    color: var(--color-highlight-high);
+  }
+}
+
+.a-button {
+  border: 2px solid var(--color-highlight-high);
+  border-radius: 100px;
+  padding: 10px 20px 10px 20px;
+}
+@media (hover: hover) {
+  .a-button:hover {
+    color: var(--color-text);
+    background-color: var(--color-highlight-high);
+  }
+}
+@media (hover: none) {
+  .a-button:active {
+    color: var(--color-text);
+    background-color: var(--color-highlight-high);
+  }
+}
+
+h1 {
+  font-size: 72px;
+  line-height: 86px;
+}
+
+h2 {
+  font-size: 58px;
+  line-height: 70px;
+}
+
+h3 {
+  font-size: 42px;
+  line-height: 52px;
+}
+
+h4 {
+  font-size: 32px;
+  line-height: 42px;
+}
+
+h5 {
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 32px;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-weight: bold;
+}
+
+p {
+  font-size: 16px;
+  line-height: 26px;
+}
+
+.header {
+  padding-top: 45px;
+  font-size: 16px;
+}
+.header__inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+}
+.header__logo {
+  display: flex;
+  align-items: center;
+}
+.header__menu {
+  font-size: 18px;
+  font-weight: 500;
+}
+.header__menu-list {
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  -moz-column-gap: 40px;
+       column-gap: 40px;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  width: -moz-min-content;
+  width: min-content;
+}
+@media (hover: hover) {
+  .logo:hover {
+    color: inherit;
+  }
+}
+@media (hover: none) {
+  .logo:active {
+    color: inherit;
+  }
+}
+
+.hero {
+  padding-top: 90px;
+}
+.hero__inner {
+  display: grid;
+}
+.hero__text {
+  width: 50%;
+  padding-bottom: 115px;
+}
+.hero__text-h1 {
+  font-size: 72px;
+  line-height: 86px;
+  color: var(--color-text);
+  padding-bottom: 30px;
+}
+.hero__text-h5 {
+  text-align: justify;
+  color: var(--color-text);
+}
+.hero__tech {
+  display: grid;
+  grid-template-columns: 25% 25%;
+  -moz-column-gap: 40px;
+       column-gap: 40px;
+}
+.hero__tech-icon {
+  font-size: 50px;
+  padding-bottom: 25px;
+}
+.hero__tech h5 {
+  font-size: 22px;
+  line-height: 26px;
+  font-weight: 500;
+  padding-bottom: 25px;
+}
+.hero__tech p {
+  font-size: 16px;
+  line-height: 26px;
+}
+.hero__image {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(50%, -50%);
+}
+
+.footer {
+  height: 250px;
+  padding-left: var(--padding-side);
+  padding-right: var(--padding-side);
+  background-color: var(--color-text);
+}
+.footer__inner {
+  padding-top: 80px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+}
+.footer__menu-list {
+  display: flex;
+  -moz-column-gap: 30px;
+       column-gap: 30px;
+}
+.footer__menu-link {
+  font-size: 16px;
+  font-weight: normal;
+  color: var(--color-base);
+}
+.footer__menu-socials-list {
+  display: flex;
+  justify-content: right;
+  -moz-column-gap: 30px;
+       column-gap: 30px;
+}
+.footer__menu-socials-link {
+  font-size: 16px;
+  font-weight: normal;
+  color: var(--color-base);
+}
+.footer__logo {
+  display: flex;
+  justify-content: center;
+  color: var(--color-base);
+  width: 100%;
+  height: 100%;
+}
+@media (hover: hover) {
+  .footer__logo:hover {
+    color: var(--color-highlight-high);
+  }
+}
+@media (hover: none) {
+  .footer__logo:active {
+    color: var(--color-highlight-high);
+  }
+}
+.footer__text {
+  grid-column: 2;
+  font-size: 16px;
+  text-align: center;
+  padding-top: 30px;
+  color: var(--color-muted);
+}
+
+.team {
+  padding-top: 100px;
+}
+.team__intro {
+  width: 50vw;
+  margin: auto;
+}
+.team__intro h3,
+.team__intro p {
+  text-align: center;
+}
+.team__intro p {
+  padding-top: 20px;
+  color: var(--color-muted);
+}
+.team__button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: auto;
+  padding-top: 45px;
+}
+
+.team-member-card {
+  display: flex;
+  flex-flow: column;
+  width: 370px;
+  height: 370px;
+  border: 2px solid var(--color-highlight-high);
+  border-radius: 5px;
+}
+.team-member-card__inner {
+  width: 100%;
+}
+.team-member-card__portrait {
+  margin: 50px auto 25px auto;
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+}
+.team-member-card__duty {
+  color: var(--color-muted);
+}
+.team-member-card__socials {
+  flex-grow: 1;
+  border-top: 2px solid var(--color-highlight-high);
+  margin-top: 35px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+}
+.team-member-card__socials-icon {
+  font-size: 20px;
+}
+.team-member-card__socials-icon-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-right: 2px solid var(--color-highlight-high);
+}
+.team-member-card__socials-icon-container:last-child {
+  border-right: none;
+}
+.team-member-card__name, .team-member-card__duty {
+  text-align: center;
+}
+
+.team-member-cards {
+  padding-top: 75px;
+  padding-bottom: 100px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  -moz-column-gap: 30px;
+       column-gap: 30px;
+}/*# sourceMappingURL=styles.css.map */
