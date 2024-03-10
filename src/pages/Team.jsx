@@ -12,12 +12,11 @@ export const Team = () => {
                         <div className="team__intro">
                             <h3 className="team__intro-h3">Our Awesome Team</h3>
                             <p className="team__intro-p">
-                                Lorem ipsum dolor sit, amet consectetur
-                                adipisicing elit. Maiores placeat distinctio
-                                vero expedita consequuntur suscipit dignissimos
-                                recusandae fuga itaque harum repellat
-                                praesentium possimus quas, iure quo soluta
-                                perspiciatis nesciunt fugit.
+                                Welcome to the heart of our innovation – the
+                                incredible team behind our success. Each member
+                                brings a unique set of skills and passion to the
+                                table, driving us towards excellence in every
+                                project.
                             </p>
                         </div>
 
@@ -31,17 +30,17 @@ export const Team = () => {
                             <TeamMemberCard
                                 name="John Titor"
                                 duty="UI Designer"
-                                imagePath="/worker-1.jpeg"
+                                imagePath="worker-1.jpeg"
                             />
                             <TeamMemberCard
                                 name="Norman Reedus"
                                 duty="CEO"
-                                imagePath="/worker-2.jpeg"
+                                imagePath="worker-2.jpeg"
                             />
                             <TeamMemberCard
                                 name="Malenia"
                                 duty="Blade of Miquella"
-                                imagePath="/worker-3.jpeg"
+                                imagePath="worker-3.jpeg"
                             />
                         </div>
                     </div>

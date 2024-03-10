@@ -58,8 +58,7 @@ export const Footer = () => {
                 </nav>
 
                 <div className="footer__text">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Rem, ipsum?
+                    Incredible startup made by CATS
                 </div>
             </div>
         </footer>

@@ -19,7 +19,7 @@ export const Header = () => {
                             </a>
                         </li>
                         <li className="header__menu-item">
-                            <a className="header__menu-link" href="/team">
+                            <a className="header__menu-link" href="#/team">
                                 Team
                             </a>
                         </li>
